@@ -9,7 +9,7 @@ fn main(){
         println!("Option 3: Multiplication");
         println!("Option 4: Dividation");
         println!("Option 5: Square");
-        println!("Option 6: square root");
+        println!("Option 6: Square root");
         println!("What is your choice?");
         
         let mut choice = String::new();
@@ -27,14 +27,16 @@ fn main(){
         println!("You chose: {}", choice);
 
 
+        println!("Enter first number:");
         let mut input1 = String::new();
         io::stdin().read_line(&mut input1).expect("Failed to ReadLine");
 
+        println!("Enter second number:");
         let mut input2 = String::new();
         io::stdin().read_line(&mut input2).expect("Failed to ReadLine");
 
         
-        println!("Choose the first number: ");
+        
         let num1 : f32 = match input1.trim().parse()
         {
             Ok(num) => num,
@@ -45,7 +47,7 @@ fn main(){
 
         };
 
-        println!("Choose the Second number: ");
+        
         let num2 : f32 = match input2.trim().parse()
         {
             Ok(num) => num,
@@ -65,6 +67,23 @@ fn main(){
             let total_sum = sum(num1, num2);
             println!("Total Sum {}", total_sum);   
         }
+        else if choice == 2
+        {
+            let total_rest = rest(num1,num2);
+            println!("Total Rest {}", total_rest);   
+        }else if choice == 3
+        {
+            let total_multiplication = mult(num1, num2);
+            println!("Total Multiplication {}", total_multiplication);   
+        }else if choice == 4
+        {
+            let total_dividation = div(num1,num2);
+            println!("Total Dividation {}", total_dividation);   
+        }else if choice == 5
+        {
+            let total_Square = square(num1);
+            println!("Total Square Root {}", total_Square);   
+        }
 
     }
 }
@@ -73,4 +92,26 @@ fn sum(number1 : f32, number2: f32) -> f32
 {
     number1 + number2
     
+}
+
+
+fn rest(number1: f32, number2: f32) -> f32
+{
+    number1 - number2
+}
+
+fn mult(number1: f32, number2:f32) -> f32
+{
+    number1 * number2
+}
+
+fn div(number1: f32, number2:f32) -> f32
+{
+    number1 / number2
+}
+
+fn square(num1: f32) -> f32
+{
+    num1.powi(2);
+
 }
