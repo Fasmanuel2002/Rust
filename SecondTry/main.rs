@@ -81,8 +81,12 @@ fn main(){
             println!("Total Dividation {}", total_dividation);   
         }else if choice == 5
         {
-            let total_Square = square(num1);
-            println!("Total Square Root {}", total_Square);   
+            let total_square = square(num1);
+            println!("Total Square Root {}", total_square);   
+        }else if choice == 6
+        {
+            let total_square_root = square_root(num1);
+            println!("Total Square Root {}", total_square_root);   
         }
 
     }
@@ -112,6 +116,13 @@ fn div(number1: f32, number2:f32) -> f32
 
 fn square(num1: f32) -> f32
 {
-    num1.powi(2);
+    let operation = num1.powi(2);
+    return operation;
 
+}
+
+fn square_root(num1:f32) -> f32
+{
+    let operation = num1.sqrt();
+    return operation;
 }
