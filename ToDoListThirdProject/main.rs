@@ -1,5 +1,5 @@
 use std::io;
-
+use std::ptr::null;
 #[derive(Debug)]
 struct Task{
     description: String,
@@ -49,12 +49,27 @@ fn main()
 
                 read_task(&tasks);
 
+            },
+            3 =>
+            {
+                println!("What Task you want to Complete?: ");
+                let mut index = String::new();
+                io::stdin().read_line(&mut index).expect("Failed to read Line");
+                let index : usize = match index.trim().parse()
+                {
+                    Ok(num) => num,
+                    Err(_) =>{
+                        println!("Please put a number");
+                        continue;
+                    }
+
+                };
+                make_completed_task(&mut tasks, index - 1);
+
             }
             _ => break,
 
         };
-
-
     }
 
 }
@@ -73,4 +88,18 @@ fn read_task(tasks: &Vec<Task>)
         println!("Task {:?}", task);
     }
 
+}
+
+fn make_completed_task(tasks: &mut Vec<Task>, index : usize)
+{
+    for (i, task) in tasks.iter_mut().enumerate()
+    {
+        if i == index
+        {
+            task.completed = true;
+        }else
+        {
+            return ();
+        }
+    }
 }
