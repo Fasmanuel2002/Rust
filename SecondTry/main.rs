@@ -120,7 +120,6 @@ fn square(num1: f32) -> f32
     return operation;
 
 }
-
 fn square_root(num1:f32) -> f32
 {
     let operation = num1.sqrt();
